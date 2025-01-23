@@ -1,0 +1,42 @@
+@import "../../../variables.scss";
+
+.addForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    input {
+        width: 250px;
+        height: 40px;
+        border-radius: $border-radius;
+        border: 2px solid $main-dark-color;
+        padding-left: 1rem;
+    }
+    select {
+        appearance: none;
+        width: 260px;
+        height: 50px;
+        border-radius: $border-radius;
+        border: 2px solid $main-dark-color;
+        padding-left: 1rem;
+        option {
+            padding-left: 3px;
+        }
+    }
+    button {
+        width: 5rem;
+        height: 3rem;
+        margin-right: 2rem;
+        border-radius: $border-radius;
+        background-color: #ffffff; 
+        font-weight: 600;
+        color: $main-dark-color; 
+        border: 2px solid $main-dark-color;
+        &:hover {
+            cursor: pointer;
+            background-color: $main-light-color;
+        }
+    }
+}
+

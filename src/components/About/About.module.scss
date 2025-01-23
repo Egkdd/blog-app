@@ -1,0 +1,20 @@
+@import "../../variables.scss";
+
+.about {
+    h2 {
+        text-align: center;
+    }
+    div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: auto;
+        p {
+            width: 50%;
+        }
+        img {
+            width: 30%;
+            height: 30%;
+        }
+    }
+}

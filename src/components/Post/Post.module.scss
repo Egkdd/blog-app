@@ -1,0 +1,46 @@
+@import "../../variables.scss";
+
+.post {
+    border: 2px solid $main-dark-color;
+    padding: 2rem;
+    width: 15rem;
+    height: 18rem;
+    border-radius: $border-radius;
+    background-color: $main-dark-color;
+    color: white;
+    text-align: center;
+    * {
+        margin: 0.5rem;
+    }
+    .title {
+        height: 2rem;
+    }
+    .description {
+        display: inline;
+        width: 1rem;
+    }
+    .category {
+        display: block;
+        padding: 0.5rem;
+        border-radius: $border-radius;
+        height: 1rem;
+        font-style: italic;
+        font-weight: 600;
+        text-decoration: underline;
+        align-self: center;
+        margin-top: 25%;
+    }
+    button {
+        width: 5rem;
+        height: 2rem;
+        border-radius: $border-radius;
+        border: 2px solid $main-dark-color;
+        background-color: $main-light-color;
+        color: $main-dark-color;
+        &:hover {
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 5px 5px 5px $main-dark-color;
+        }
+    }
+}

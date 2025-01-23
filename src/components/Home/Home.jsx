@@ -60,7 +60,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className={style.home}>
       <h1>All Your Posts</h1>
       <ul className={style.categories}>
         {categories.map((category) => (

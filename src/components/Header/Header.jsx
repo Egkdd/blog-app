@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { usePosts } from "../../context/PostContext";
-import AddForm from "../Forms/AddForm/AddForm";
+import Form from "../Form/Form.jsx";
 import style from "./Header.module.scss";
 import logo from "../../assets/logo2.svg";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [postToEdit, setPostToEdit] = useState(null);
+  const { addPost } = usePosts();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -14,6 +17,8 @@ export default function Header() {
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setIsEditMode(false);
+    setPostToEdit(null);
   };
 
   return (
@@ -33,17 +38,15 @@ export default function Header() {
         </ul>
       </nav>
 
-      <button onClick={openModal}>New Post</button>
+      <button onClick={openModal} className={style.button}>New Post</button>
 
       {isModalOpen && (
-        <div className={style.modal}>
-          <div className={style.modalContent}>
-            <button onClick={closeModal} className={style.closeButton}>
-              X
-            </button>
-            <AddForm addPost={usePosts().addPost} closeModal={closeModal} />
-          </div>
-        </div>
+        <Form
+          post={postToEdit}
+          addPost={addPost}
+          editPost={usePosts().editPost}
+          closeModal={closeModal}
+        />
       )}
     </div>
   );

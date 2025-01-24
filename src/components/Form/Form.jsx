@@ -2,60 +2,57 @@ import { useState, useEffect } from "react";
 import categories from "../../data/categories.js";
 import style from "./Form.module.scss";
 
-export default function Form({ post = "", addPost, editPost, closeModal }) {
-  const [title, setTitle] = useState(post?.title || ""); // Use optional chaining and default value
-  const [description, setDescription] = useState(post?.description || "");
-  const [category, setCategory] = useState(post?.category || "");
-  
+export default function Form({ post, addPost, editPost, closeModal }) {
+  const [title, setTitle] = useState(post ? post.title : "");
+  const [description, setDescription] = useState(post ? post.description : "");
+  const [category, setCategory] = useState(post ? post.category : "");
 
+  // Оновлення стану, якщо переданий пост змінюється
   useEffect(() => {
     if (post) {
-      // Only update state if post exists
       setTitle(post.title);
       setDescription(post.description);
       setCategory(post.category);
-    } else {
-      setTitle("");
-      setDescription("");
-      setCategory("");
     }
   }, [post]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
 
-  if (title && description && category) {
-    // Check if all fields are filled
-    if (post) {
-      const updatedPost = {
-        ...post,
-        title,
-        description,
-        category,
-        updatedAt: new Date().toISOString(),
-      };
-      editPost(updatedPost);
-    } else {
+    if (title && description && category) {
       const newPost = {
         title,
         description,
         category,
         createdAt: new Date().toISOString(),
       };
-      addPost(newPost);
+
+      if (post) {
+        // Якщо пост передано, то редагуємо пост
+        const updatedPost = {
+          ...post,
+          title,
+          description,
+          category,
+          updatedAt: new Date().toISOString(),
+        };
+        editPost(updatedPost);
+      } else {
+        // Якщо поста немає, створюємо новий
+        addPost(newPost);
+      }
+      closeModal();
     }
-    closeModal();
-  }
+  };
 
   return (
     <div className={style.modal}>
       <div className={style.modalContent}>
-        <button onClick={closeModal} className={style.closeButton}>
+        <h2>{post ? "Edit Post" : "Add New Post"}</h2>
+        <button onClick={closeModal} className={style.closeModal}>
           X
         </button>
         <form onSubmit={handleSubmit} className={style.form}>
-          <h2>{post ? "Edit Form" : "Add Form"}</h2>
           <input
             type="text"
             value={title}
@@ -79,7 +76,7 @@ export default function Form({ post = "", addPost, editPost, closeModal }) {
               </option>
             ))}
           </select>
-          <button type="submit">{post ? "Save" : "Add"}</button>
+          <button type="submit" className={style.action}>{post ? "Save Post" : "Add Post"}</button>
         </form>
       </div>
     </div>

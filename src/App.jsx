@@ -5,7 +5,7 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About.jsx";
 import Search from "./components/Search/Search.jsx";
 import { Route, Routes } from "react-router-dom";
-import AddForm from "./components/Forms/AddForm/AddForm.jsx";
+import Form from "./components/Form/Form.jsx";
 
 export default function App() {
   return (
@@ -13,7 +13,7 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/add" element={<AddForm />} />
+        <Route path="/add" element={<Form />} />
         <Route path="/about" element={<About />} />
         <Route path="/search" element={<Search />} />
       </Routes>

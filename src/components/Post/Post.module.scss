@@ -28,11 +28,11 @@
         font-weight: 600;
         text-decoration: underline;
         align-self: center;
-        margin-top: 25%;
+        margin-top: 20%;
     }
-    button {
+    .button {
         width: 5rem;
-        height: 2rem;
+        height: 2.5rem;
         border-radius: $border-radius;
         border: 2px solid $main-dark-color;
         background-color: $main-light-color;

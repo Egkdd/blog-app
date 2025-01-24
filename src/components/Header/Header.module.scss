@@ -1,82 +1,48 @@
 @import "../../variables.scss";
 
 .navigation {
-    background-color: $main-dark-color;
+  background-color: $main-dark-color;
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    width: 6rem;
     height: 6rem;
+    margin-left: 2rem;
+    fill: aliceblue;
+  }
+  ul {
+    list-style: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    img {
-        width: 6rem;
-        height: 6rem;
-        margin-left: 2rem;
-        fill: aliceblue;
+    gap: 1rem;
+    li a {
+      text-decoration: none;
+      padding: 0.8rem;
+      border: 2px solid white;
+      border-radius: $border-radius;
+      color: white;
     }
-    ul {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        li a {
-            text-decoration: none;
-            padding: 0.8rem;
-            border: 2px solid white;
-            border-radius: $border-radius;
-            color: white;
-        }
-        li a:hover {
-            background-color: white;
-            color: $main-dark-color;
-            font-weight: 600;
-        }
+    li a:hover {
+      background-color: white;
+      color: $main-dark-color;
+      font-weight: 600;
     }
-    button {
-        width: 7rem;
-        height: 3rem;
-        margin-right: 2rem;
-        border-radius: $border-radius;
-        background-color: #ffffff; 
-        font-weight: 600;
-        color: $main-dark-color; 
-        border: 2px solid $main-dark-color;
-        &:hover {
-            cursor: pointer;
-            background-color: $main-light-color;
-        }
+  }
+  .button {
+    width: 7rem;
+    height: 3rem;
+    margin-right: 2rem;
+    border-radius: $border-radius;
+    background-color: #ffffff;
+    font-weight: 600;
+    color: $main-dark-color;
+    border: 2px solid $main-dark-color;
+    &:hover {
+      cursor: pointer;
+      background-color: $main-light-color;
     }
-    .modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        button {
-          margin-right: 0;
-        }
-      }
-      
-      .modalContent {
-        background-color: white;
-        padding: 20px;
-        border-radius: 8px;
-        width: 400px;
-        position: relative;
-      }
-      
-      .closeButton {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 20px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        width: 5rem;
-      }
+  }
 }

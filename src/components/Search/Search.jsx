@@ -11,7 +11,7 @@ export default function Search() {
 
   useEffect(() => {
     setFilteredPosts(posts);
-  }, [posts.length]);
+  }, [posts]);
 
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);

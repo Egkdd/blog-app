@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { usePosts } from "../../context/PostContext.jsx";
+import Post from "../Post/Post.jsx";
 import categories from "../../data/categories.js";
 import style from "./Home.module.scss";
-import Post from "../Post/Post.jsx";
 
 export default function Home() {
-  const { posts } = usePosts(); 
+  const { posts } = usePosts();
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
 
@@ -44,7 +44,14 @@ export default function Home() {
         <ul className={style.categories}>
           {categories.map((category) => (
             <li key={category.value}>
-              <button onClick={() => handleCategoryClick(category.name)}>
+              <button
+                onClick={() => handleCategoryClick(category.name)}
+                className={
+                  selectedCategories.includes(category.name)
+                    ? style.selected
+                    : ""
+                }
+              >
                 {category.name}
               </button>
             </li>

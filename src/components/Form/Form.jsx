@@ -7,7 +7,6 @@ export default function Form({ post, addPost, editPost, closeModal }) {
   const [description, setDescription] = useState(post ? post.description : "");
   const [category, setCategory] = useState(post ? post.category : "");
 
-  // Оновлення стану, якщо переданий пост змінюється
   useEffect(() => {
     if (post) {
       setTitle(post.title);
@@ -28,7 +27,6 @@ export default function Form({ post, addPost, editPost, closeModal }) {
       };
 
       if (post) {
-        // Якщо пост передано, то редагуємо пост
         const updatedPost = {
           ...post,
           title,
@@ -38,7 +36,6 @@ export default function Form({ post, addPost, editPost, closeModal }) {
         };
         editPost(updatedPost);
       } else {
-        // Якщо поста немає, створюємо новий
         addPost(newPost);
       }
       closeModal();

@@ -37,10 +37,10 @@
         border: 2px solid $main-dark-color;
         background-color: $main-light-color;
         color: $main-dark-color;
+        font-weight: 600;
         &:hover {
             cursor: pointer;
-            font-weight: bold;
-            box-shadow: 5px 5px 5px $main-dark-color;
+            transform: scale(1.1);
         }
     }
 }

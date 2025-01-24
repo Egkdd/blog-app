@@ -30,6 +30,11 @@
       color: $main-dark-color;
       font-weight: 600;
     }
+    li a.active {
+      background-color: white;
+      color: $main-dark-color;
+      font-weight: 600;
+    }
   }
   .button {
     width: 7rem;

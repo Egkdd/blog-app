@@ -1,11 +1,6 @@
-import React from "react";
 import { PostProvider } from "./context/PostContext";
-import Header from "./components/Header/Header";
-import Home from "./components/Home/Home";
-import About from "./components/About/About.jsx";
-import Search from "./components/Search/Search.jsx";
 import { Route, Routes } from "react-router-dom";
-import Form from "./components/Form/Form.jsx";
+import { About, Form, Header, Home, Search } from "./components/index.jsx";
 
 export default function App() {
   return (

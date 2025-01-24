@@ -15,6 +15,7 @@
         flex-wrap: wrap;
         width: 40rem;
         margin: 0 auto;
+
         button {
             padding: 0.6rem;
             border: 2px solid $main-dark-color;
@@ -23,10 +24,16 @@
             background-color: transparent;
             font-weight: 550;
         }
+
         button:hover {
             cursor: pointer;
             color: white;
             background-color: $main-dark-color;
+        }
+
+        button.selected {
+            background-color: $main-dark-color;
+            color: white;
         }
     }
 

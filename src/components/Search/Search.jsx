@@ -1,13 +1,13 @@
-import style from "./Search.module.scss";
 import { useState, useEffect } from "react";
 import { usePosts } from "../../context/PostContext.jsx";
 import Post from "../Post/Post.jsx";
+import style from "./Search.module.scss";
 
 export default function Search() {
   const { posts } = usePosts();
-  const [filteredPosts, setFilteredPosts] = useState([]); 
+  const [filteredPosts, setFilteredPosts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [hasSearched, setHasSearched] = useState(false); 
+  const [hasSearched, setHasSearched] = useState(false);
 
   useEffect(() => {
     setFilteredPosts(posts);
@@ -18,9 +18,9 @@ export default function Search() {
   };
 
   const handleSearchClick = () => {
-    setHasSearched(true); 
+    setHasSearched(true);
     if (searchQuery.trim() === "") {
-      setFilteredPosts([]); 
+      setFilteredPosts([]);
     } else {
       const filtered = posts.filter((post) =>
         post.title.toLowerCase().includes(searchQuery.toLowerCase())

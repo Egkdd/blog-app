@@ -3,7 +3,7 @@ import style from "./About.module.scss";
 export default function About() {
   return (
     <div className={style.about}>
-        <h2>About the author</h2>
+      <h2>About the author</h2>
       <div>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda ad

@@ -14,10 +14,10 @@ export const initDB = async () => {
 
 export const addPostToDB = async (post) => {
   const db = await initDB();
-  await db.add(STORE_NAME, post); 
+  await db.add(STORE_NAME, post);
 };
 
 export const getAllPostsFromDB = async () => {
   const db = await initDB();
-  return await db.getAll(STORE_NAME); 
+  return await db.getAll(STORE_NAME);
 };

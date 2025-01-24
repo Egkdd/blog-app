@@ -31,7 +31,6 @@ export default function Post({ post }) {
         Delete
       </button>
 
-      
       {isModalOpen && (
         <Form
           post={post}

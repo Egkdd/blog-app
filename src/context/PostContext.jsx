@@ -18,7 +18,7 @@ export const PostProvider = ({ children }) => {
 
     fetchPosts();
   }, []);
-  
+
   const addPost = async (newPost) => {
     try {
       await addPostToDB(newPost);
@@ -31,16 +31,16 @@ export const PostProvider = ({ children }) => {
 
   const deletePost = async (id) => {
     const db = await initDB();
-    await db.delete("postsStore", id); 
-    const updatedPosts = await getAllPostsFromDB(); 
-    setPosts(updatedPosts); 
+    await db.delete("postsStore", id);
+    const updatedPosts = await getAllPostsFromDB();
+    setPosts(updatedPosts);
   };
 
   const editPost = async (updatedPost) => {
     const db = await initDB();
-    await db.put("postsStore", updatedPost); 
+    await db.put("postsStore", updatedPost);
     const updatedPosts = await getAllPostsFromDB();
-    setPosts(updatedPosts); 
+    setPosts(updatedPosts);
   };
 
   return (

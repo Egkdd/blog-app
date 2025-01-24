@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { usePosts } from "../../context/PostContext";
 import Form from "../Form/Form.jsx";
 import style from "./Header.module.scss";
-import logo from "../../assets/logo2.svg";
+import logo from "../../assets/logo.svg";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,24 +21,43 @@ export default function Header() {
     setPostToEdit(null);
   };
 
+  const location = useLocation();
+
   return (
     <div className={style.navigation}>
       <img src={logo} alt="Logo icon" />
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link
+              to="/"
+              className={location.pathname === "/" ? style.active : ""}
+            >
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link
+              to="/about"
+              className={location.pathname === "/about" ? style.active : ""}
+            >
+              About
+            </Link>
           </li>
           <li>
-            <Link to="/search">Search</Link>
+            <Link
+              to="/search"
+              className={location.pathname === "/search" ? style.active : ""}
+            >
+              Search
+            </Link>
           </li>
         </ul>
       </nav>
 
-      <button onClick={openModal} className={style.button}>New Post</button>
+      <button onClick={openModal} className={style.button}>
+        New Post
+      </button>
 
       {isModalOpen && (
         <Form

@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
-import categories from "../../data/categories.js";
+import categories from "../../utils/categories.js";
 import style from "./Form.module.scss";
 
 export default function Form({ post, addPost, editPost, closeModal }) {
   const [title, setTitle] = useState(post ? post.title : "");
   const [description, setDescription] = useState(post ? post.description : "");
   const [category, setCategory] = useState(post ? post.category : "");
+  const [error, setError] = useState("");
+
+  const maxTitleLength = 30;
+  const maxDescriptionLength = 500;
 
   useEffect(() => {
     if (post) {
@@ -18,14 +22,18 @@ export default function Form({ post, addPost, editPost, closeModal }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (title && description && category) {
-      const newPost = {
-        title,
-        description,
-        category,
-        createdAt: new Date().toISOString(),
-      };
+    if (title.length > maxTitleLength) {
+      setError(`Title must be less than ${maxTitleLength} characters.`);
+      return;
+    }
+    if (description.length > maxDescriptionLength) {
+      setError(
+        `Description must be less than ${maxDescriptionLength} characters.`
+      );
+      return;
+    }
 
+    if (title && description && category) {
       if (post) {
         const updatedPost = {
           ...post,
@@ -36,6 +44,12 @@ export default function Form({ post, addPost, editPost, closeModal }) {
         };
         editPost(updatedPost);
       } else {
+        const newPost = {
+          title,
+          description,
+          category,
+          createdAt: new Date().toISOString(),
+        };
         addPost(newPost);
       }
       closeModal();
@@ -50,17 +64,20 @@ export default function Form({ post, addPost, editPost, closeModal }) {
           X
         </button>
         <form onSubmit={handleSubmit} className={style.form}>
+          {error && <p className={style.error}>{error}</p>}
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Post Title"
+            maxLength={maxTitleLength}
           />
           <input
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Description"
+            maxLength={maxDescriptionLength}
           />
           <select
             value={category}
@@ -73,7 +90,9 @@ export default function Form({ post, addPost, editPost, closeModal }) {
               </option>
             ))}
           </select>
-          <button type="submit" className={style.action}>{post ? "Save Post" : "Add Post"}</button>
+          <button type="submit" className={style.action}>
+            {post ? "Save Post" : "Add Post"}
+          </button>
         </form>
       </div>
     </div>

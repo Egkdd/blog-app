@@ -42,10 +42,10 @@ export default function About() {
           laboriosam accusantium eos natus, doloremque placeat ipsam labore
           obcaecati. Nemo.
         </p>
-        <img src="./src/assets/logo2.svg" alt="photo" />
+        <img src="./src/assets/logo.svg" alt="photo" />
       </div>
       <div>
-        <img src="./src/assets/logo2.svg" alt="photo" />
+        <img src="./src/assets/logo.svg" alt="photo" />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed
           necessitatibus repudiandae eaque consequuntur illum saepe vitae rem

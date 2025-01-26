@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { getAllPostsFromDB, addPostToDB, initDB } from "../indexedDB.jsx";
+import { getAllPostsFromDB, addPostToDB, initDB } from "../utils/indexedDB.jsx";
 
 const PostContext = createContext();
 

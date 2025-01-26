@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { usePosts } from "../../context/PostContext.jsx";
 import Post from "../Post/Post.jsx";
-import categories from "../../data/categories.js";
+import categories from "../../utils/categories.js";
 import style from "./Home.module.scss";
 
 export default function Home() {

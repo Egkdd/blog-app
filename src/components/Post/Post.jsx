@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { usePosts } from "../../context/PostContext";
+import { usePosts } from "../../context/PostContext.jsx";
 import Form from "../Form/Form.jsx";
 import style from "./Post.module.scss";
 
 export default function Post({ post }) {
-  const { deletePost, editPost } = usePosts();
+  const { addPost, deletePost, editPost } = usePosts();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleEditClick = () => {
@@ -34,7 +34,7 @@ export default function Post({ post }) {
       {isModalOpen && (
         <Form
           post={post}
-          addPost={usePosts().addPost}
+          addPost={addPost}
           editPost={editPost}
           closeModal={closeModal}
         />

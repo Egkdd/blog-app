@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { usePosts } from "../../context/PostContext";
+import { usePosts } from "../../context/PostContext.jsx";
 import Form from "../Form/Form.jsx";
 import style from "./Header.module.scss";
 import logo from "../../assets/logo.svg";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isEditMode, setIsEditMode] = useState(false);
   const [postToEdit, setPostToEdit] = useState(null);
-  const { addPost } = usePosts();
+  const { addPost, editPost } = usePosts();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -17,7 +16,6 @@ export default function Header() {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setIsEditMode(false);
     setPostToEdit(null);
   };
 
@@ -63,7 +61,7 @@ export default function Header() {
         <Form
           post={postToEdit}
           addPost={addPost}
-          editPost={usePosts().editPost}
+          editPost={editPost}
           closeModal={closeModal}
         />
       )}
